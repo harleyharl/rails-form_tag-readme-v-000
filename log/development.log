@@ -247,3 +247,33 @@ ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticit
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (44.1ms)
+
+
+Started GET "/posts" for 157.131.222.97 at 2019-01-10 21:04:43 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 157.131.222.97 at 2019-01-10 21:04:56 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 157.131.222.97 at 2019-01-10 21:05:01 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"title"=>"hkjshl", "description"=>"qsadfaffd"}, "authenticity_token"=>"2vO0QsKN3Ntjutr4uIOG5StDwoMiEZsPbqDOTbZpxO1qnggykwuRiSoNN42VlgA8nlWQ5HyZbkj97Z3qq+2NOw=="}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "hkjshl"], ["description", "qsadfaffd"], ["created_at", "2019-01-10 21:05:01.194677"], ["updated_at", "2019-01-10 21:05:01.194677"]]
+  [1m[36m (74.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://165.227.31.208:40762/posts
+Completed 302 Found in 85ms (ActiveRecord: 75.4ms)
+
+
+Started GET "/posts" for 157.131.222.97 at 2019-01-10 21:05:01 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.2ms)
